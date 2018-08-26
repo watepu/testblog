@@ -1,0 +1,25 @@
+<h1>新規登録</h1>
+
+<%= form_with(model: @blog, local: true, url: confirm_blogs_path) do |form| %>
+  <% if @blog.errors.any? %>
+  <ul>
+    <% @blog.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <div class="blog_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div class="content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "一覧へ", blogs_path %>
