@@ -1,3 +1,32 @@
-// Place all the styles related to the blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 新規作成画面
+.content{
+  padding-bottom:30px;
+}
+
+.content_form{
+  width:400px;
+  height:300px;
+  font-size:2rem;
+}
+
+.title_form{
+  width:400px;
+}
+
+// 一覧画面
+table{
+  margin:20px auto;
+}
+
+td, th{
+  text-align: center;
+  padding:10px;
+}
+
+th{
+  background-color: #ccc;
+}
+
+td{
+  background-color: #fffaf0;
+}

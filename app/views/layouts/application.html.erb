@@ -9,6 +9,23 @@
   </head>
 
   <body>
+    <div class="containers">
+      <header class="clearfix">
+        <ul>
+          <li class="header_navi label label-default"><%= link_to "Home" ,"/" %></li>
+          <li class="header_navi label label-primary"><%= link_to "ログを書く", new_blog_path %></li>
+          <li class="header_navi label label-warning"><%= link_to "ログを見る", blogs_path %></li>
+        </ul>
+      </header>
+      <div class="title">
+        <h1><%= link_to "わてぷログ" , "/" %></h1>
+        <h3>学んだことを残しておくためのメモ</h3>
+      </div>
+  <main>
     <%= yield %>
+  </main>
+  <footer>
+        <p>2018 わてぷログ</p>
+  </footer>
   </body>
 </html>
