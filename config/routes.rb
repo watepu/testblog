@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions
+  resources :favorites, only:[:create,:destroy]
 
   get '/' => "home#top"
 
