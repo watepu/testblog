@@ -12,10 +12,18 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
+
+    respond_to do |format|
     if @blog.save
-      redirect_to blogs_path
+      SubmitMailer.submit_mail(@blog).deliver
+      format.html { redirect_to @blog, notice: 'Contact was successfully created.' }
+      format.json { render :show, status: :created, location: @blog }
+      # redirect_to blogs_path
     else
-      render 'new'
+      format.html { render :new }
+      format.json { render json: @blog.errors, status: :unprocessable_entity }
+      # render 'new'
+    end
     end
   end
 
