@@ -13,18 +13,18 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
 
-    respond_to do |format|
+    # respond_to do |format|
     if @blog.save
-      SubmitMailer.submit_mail(@blog).deliver
-      format.html { redirect_to @blog, notice: 'Contact was successfully created.' }
-      format.json { render :show, status: :created, location: @blog }
-      # redirect_to blogs_path
+      # SubmitMailer.submit_mail(@blog).deliver
+      # format.html { redirect_to @blog, notice: 'Contact was successfully created.' }
+      # format.json { render :show, status: :created, location: @blog }
+      redirect_to blogs_path
     else
-      format.html { render :new }
-      format.json { render json: @blog.errors, status: :unprocessable_entity }
-      # render 'new'
+      # format.html { render :new }
+      # format.json { render json: @blog.errors, status: :unprocessable_entity }
+      render 'new'
     end
-    end
+    # end
   end
 
   def edit
@@ -58,6 +58,7 @@ class BlogsController < ApplicationController
   end
 
   private
+
   def blog_params
     params.require(:blog).permit(:title, :content)
   end
