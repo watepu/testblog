@@ -6,3 +6,18 @@
 <% @favorite_blogs.each do |blog| %>
   <p>タイトル：<%= blog.title %>,内容：<%= blog.content %></p>
 <% end %>
+
+<p>アイコン</p>
+<%= form_with(model: @user, local: true) do |form| %>
+<%= @user.image %>
+
+
+  <div class="field">
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

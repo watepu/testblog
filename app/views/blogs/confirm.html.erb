@@ -3,8 +3,10 @@
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
-  
+  <%= form.hidden_field :blog_image_cache %>
+
   <p>タイトル：<%= @blog.title %></p>
   <p>内容：<%= @blog.content %></p>
+  <p>画像：<%= image_tag(@blog.blog_image) %></p>
   <%= form.submit "投稿する" %>
 <% end %>

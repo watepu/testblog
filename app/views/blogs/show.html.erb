@@ -2,6 +2,7 @@
 
 <p>タイトル：<%= @blog.title %></p>
 <p>内容：<%= @blog.content %></p>
+<p>画像：<%= image_tag(@blog.blog_image.url) if @blog.blog_image.url %></p>
 
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>

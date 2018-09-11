@@ -12,6 +12,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render 'new'
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     @favorite_blogs = @user.favorite_blogs
@@ -19,6 +28,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:image,:image_cache)
   end
 end

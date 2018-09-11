@@ -60,7 +60,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :blog_image, :blog_image_cache)
   end
 
   def forcibly_redirect

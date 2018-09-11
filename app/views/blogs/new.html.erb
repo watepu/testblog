@@ -19,5 +19,14 @@
     <%= form.text_area :content, :class => 'content_form' %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= image_tag(@blog.blog_image.url) if @blog.blog_image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :blog_image_cache %>
+  </div>
+
+  <div>
   <%= form.submit "保存する", :class => "btn" %>
+</div>
 <% end %>
