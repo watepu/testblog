@@ -2,16 +2,18 @@
 
 <table>
   <tr>
+    <th>アイコン</th>
     <th>タイトル</th>
     <th>内容</th>
     <th>編集</th>
     <th>削除</th>
     <th>詳細</th>
-    <th>アイコン</th>
+    <th>画像</th>
   </tr>
 
   <% @blogs.each do |blog| %>
   <tr>
+    <td><%= image_tag(blog.user.image.url) if blog.user.image.url %></td>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
     <% if blog.user_id == current_user.id %>
@@ -22,6 +24,7 @@
     <td>×</td>
     <% end %>
     <td><%= link_to "詳細" ,blog_path(blog.id), class: 'btn btn-success' %></td>
+    <td><%= image_tag(blog.blog_image.url) if blog.blog_image.url %></td>
   </tr>
   <% end %>
 </table>

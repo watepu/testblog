@@ -7,17 +7,6 @@
   <p>タイトル：<%= blog.title %>,内容：<%= blog.content %></p>
 <% end %>
 
-<p>アイコン</p>
-<%= form_with(model: @user, local: true) do |form| %>
-<%= @user.image %>
+<p>画像：<%= image_tag(@user.image.url) if @user.image.url %></p>
 
-
-  <div class="field">
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= link_to "編集" ,edit_user_path(@user.id), class: 'btn btn-info' %>

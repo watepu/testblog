@@ -22,7 +22,7 @@
   <div class="field">
     <%= form.label :image %>
     <%= image_tag(@blog.blog_image.url) if @blog.blog_image.url %>
-    <%= form.file_field :image %>
+    <%= form.file_field :blog_image %>
     <%= form.hidden_field :blog_image_cache %>
   </div>
 

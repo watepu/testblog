@@ -5,13 +5,22 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-  
+
   <div class="content">
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
-  
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= image_tag(@blog.blog_image.url) if @blog.blog_image.url %>
+    <%= form.file_field :blog_image %>
+    <%= form.hidden_field :blog_image_cache %>
+  </div>
+
+  <div>
   <%= form.submit %>
+  </div>
 <% end %>
 
 <%= link_to "一覧へ", blogs_path %>

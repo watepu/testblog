@@ -1,0 +1,51 @@
+<h2>ユーザー編集</h2>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<div class="name_label">
+  <%= f.label :name %>
+</div>
+<div class="name_form">
+  <%= f.text_field :name %>
+</div>
+
+<div class="email_label">
+  <%= f.label :email %>
+</div>
+<div class="email_form">
+  <%= f.email_field :email %>
+</div>
+
+<div class="password_label">
+  <%= f.label :password %>
+</div>
+<div class="password_form">
+  <%= f.password_field :password %>
+</div>
+
+<div class="password_confirmation_label">
+  <%= f.label :password_confirmation %>
+</div>
+<div class="password_confirmation_form">
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<div class="field">
+  <%= f.label :image %>
+  <%= image_tag(@user.image.url) if @user.image.url %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+</div>
+
+<div>
+<%= f.submit "登録する" %>
+</div>
+
+<% end %>
