@@ -11,3 +11,10 @@
     <%= link_to "お気に入りする", favorites_path(blog_id: @blog.id),method: :post,class: "btn btn-primary" %>
   <% end %>
 <% end %>
+
+<h3>コメント一覧</h3>
+
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+</div>
+<%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>

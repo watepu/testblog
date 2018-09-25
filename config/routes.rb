@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :sessions
   resources :favorites, only:[:create,:destroy]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :blogs do
+    resources :comments
     collection do
       post :confirm
     end
