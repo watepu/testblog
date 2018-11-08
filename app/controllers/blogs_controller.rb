@@ -2,7 +2,9 @@ class BlogsController < ApplicationController
   before_action :forcibly_redirect, only:[:new,:edit,:show,:destroy]
 
   def index
-    @blogs = Blog.all
+
+    @search = Blog.ransack(params[:q])
+    @blogs = @search.result
   end
 
   def new
