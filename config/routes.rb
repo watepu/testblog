@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :favorites, only:[:create,:destroy]
   resources :users
+  resources :relationships, only:[:create, :destroy]
   resources :blogs do
     resources :comments
     collection do
