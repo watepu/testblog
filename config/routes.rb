@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
+  root "home#top"
   resources :sessions
   resources :favorites, only:[:create,:destroy]
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-
-  get '/' => "home#top"
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
   resources :blogs do
     resources :comments
     collection do
@@ -14,6 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
 end
