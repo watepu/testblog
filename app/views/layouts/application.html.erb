@@ -16,6 +16,7 @@
           <li class="header_navi label label-primary"><%= link_to "ログを書く", new_blog_path %></li>
           <li class="header_navi label label-warning"><%= link_to "ログを見る", blogs_path %></li>
           <% if logged_in? %>
+            <li class="header_navi label label-default"><%= link_to "ユーザー一覧", users_path %>
             <li class="header_navi label label-success"><%= link_to "プロフィール", user_path(current_user.id) %>
             <li class="header_navi label label-danger"><%= link_to "ログアウト", session_path(current_user.id),method: :delete %>
           <% else %>
