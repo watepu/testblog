@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @favorite_blogs = @user.favorite_blogs
     @following_user = @user.following
+    @followed_user = @user.followers
   end
 
   private
