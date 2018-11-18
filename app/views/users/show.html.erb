@@ -9,4 +9,11 @@
 
 <p>画像：<%= image_tag(@user.image.url) if @user.image.url %></p>
 
+<h3>フォローしている人</h3>
+<% @following_user.each do |user| %>
+  <p><%= user.name %></p>
+<% end %>
+
+<div>
 <%= link_to "編集" ,edit_user_path(@user.id), class: 'btn btn-info' %>
+</div>
