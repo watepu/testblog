@@ -16,9 +16,7 @@ class MessagesController < ApplicationController
     end
 
     if @messages.last
-      if @messages.last.user_id != current_user.id
-       @messages.last.read = true
-      end
+      @messages.where.not(user_id: current_user.id).update_all(read: true)
     end
 
     @message = @conversation.messages.build
